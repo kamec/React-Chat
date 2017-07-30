@@ -1,11 +1,14 @@
 const path = require('path');
-const app = require('express')();
+const express = require('express');
+const app = express();
 
-const server = require('http').Server(app); 
+const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
+app.use(express.static('build'));
+
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'public', 'index-stub.html'));
+  res.sendFile(path.join(__dirname, '../../build/index.html'));
 });
 
 server.listen(4000, function() {
@@ -21,8 +24,7 @@ io.on('connection', socket => {
   });
 
   socket.on('chat message', data => {
-    const userName = socket.id % 100;
-    socket.broadcast.emit('message', `#${userName}: ${data}`);
+    socket.broadcast.emit('message', data);
     console.log(`message: ${data}`);
   });
 });
