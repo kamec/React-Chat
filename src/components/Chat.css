@@ -1,0 +1,8 @@
+/*.chat-wrapper {
+  min-height: 100%;
+}*/
+
+#send-message {
+  position: absolute;
+  bottom: 20px;
+}

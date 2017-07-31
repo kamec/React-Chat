@@ -1,11 +1,12 @@
 import React from 'react';
 import SendDataComponent from './SendDataComponent.js';
+import './Welcome.css';
 
 export default function Welcome(props) {
   return(
-    <div>
-      <h1>What is your name?</h1>
-      <SendDataComponent onClickAction={props.setName}/>
+    <div className={'welcome col-xs-10 col-xs-offset-1'}>
+      <h1 className={'text-center'}>What is your name?</h1>
+      <SendDataComponent onClickAction={props.setName} placeholder={'Enter your name...'} />
     </div>
   )
 }

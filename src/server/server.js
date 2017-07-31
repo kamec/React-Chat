@@ -24,7 +24,7 @@ io.on('connection', socket => {
   });
 
   socket.on('chat message', data => {
-    socket.broadcast.emit('message', data);
+    socket.broadcast.emit('message', { data: data, date: new Date() });
     console.log(`message: ${data}`);
   });
 });
