@@ -3,13 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "./src/server/",
-<<<<<<< HEAD
   "dependencies": {
     "express": "^4.15.3",
     "socket.io": "^2.0.3"
   },
-=======
->>>>>>> 35203902b2012f5ae1df5fc16332765c10c50b34
   "scripts": {
     "start": "node ./src/server",
     "test": "echo \"Error: no test specified\" && exit 1"
