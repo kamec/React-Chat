@@ -3,11 +3,8 @@ import './style.css';
 
 const ENTER_CODE = 13;
 
-export default class SendDataComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { input: '' };
-  }
+export default class InputSubmit extends Component {
+  state = { input: '' };
 
   handleChange = e => this.setState({ input: e.target.value });
 

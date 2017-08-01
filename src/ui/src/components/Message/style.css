@@ -1,0 +1,29 @@
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.text {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: 12px;
+  color: #888;
+}
+
+.splitter {
+  margin: 0 15px;
+}
+
+.name:empty + .splitter {
+  display: none;
+}

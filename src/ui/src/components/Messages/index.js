@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import Message from '../Message';
 import './style.css';
 
 export default class Messages extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: [{ data: 'hey' }],
+      messages: [
+        // { data: 'hey', name: 'A', date: '1' },
+        // { data: 'hey', date: '1' },
+        // { data: 'hey', name: '1', date: '1' },
+      ],
       socket: props.socket,
     };
   }
@@ -20,27 +25,9 @@ export default class Messages extends Component {
 
   render() {
     return (
-      <div className="">
-        <ul id="messages" className="row col-xs-8 col-xs-offset-2 list-group">
-          {this.state.messages.map(m => {
-            console.log(m);
-            return (
-              <li className="list-group-item">
-                <span className="name">
-                  {m.name}
-                </span>
-                {': '}
-                <span>
-                  {m.data}
-                </span>
-                <p>
-                  {m.date}
-                </p>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <ul className="messages row col-xs-8 col-xs-offset-2 list-group">
+        {this.state.messages.map((m, idx) => <Message key={idx} message={m} />)}
+      </ul>
     );
   }
 }

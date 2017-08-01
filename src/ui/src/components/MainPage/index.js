@@ -5,30 +5,24 @@ import Welcome from '../Welcome';
 import Chat from '../Chat';
 
 export default class MainPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      socket: io(),
-    };
-  }
+  state = {
+    name: '',
+    socket: io(),
+  };
 
-  setName(name) {
+  setName = name => {
     this.state.socket.emit('chat message', {
-      data: name,
-      name: 'Meet newcomer',
+      data: `"${name}" has entered the chat.`,
     });
     this.setState({ name });
-  }
+  };
 
-  hasName() {
-    return this.state.name === '' ? false : true;
-  }
+  hasName = () => this.state.name !== '';
 
   render() {
     const { name, socket } = this.state;
     return this.hasName()
       ? <Chat name={name} socket={socket} />
-      : <Welcome setName={this.setName.bind(this)} />;
+      : <Welcome setName={this.setName} />;
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Messages from '../Messages';
-import SendDataComponent from '../SendData';
+import InputSubmit from '../InputSubmit';
 import './style.css';
 
 export default function Chat(props) {
@@ -10,7 +10,7 @@ export default function Chat(props) {
     <div className="chat-wrapper">
       <Messages socket={socket} />
       <div id="send-message">
-        <SendDataComponent
+        <InputSubmit
           name={name}
           onClickAction={sendMessage}
           placeholder={'Enter your message...'}
