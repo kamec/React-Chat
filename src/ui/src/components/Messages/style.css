@@ -1,0 +1,14 @@
+#messages {
+  max-height: 400px;
+  overflow: auto;
+}
+
+li {
+  list-style: none;
+  word-wrap: break-word;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 16px;
+}

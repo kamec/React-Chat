@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
-import Welcome from './Welcome.js';
-import Chat from './Chat.js';
+import io from 'socket.io-client';
+
+import Welcome from '../Welcome';
+import Chat from '../Chat';
 
 export default class MainPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      socket: props.socket,
+      socket: io(),
     };
   }
 
   setName(name) {
-    this.setState({ name: name });
+    this.state.socket.emit('chat message', {
+      data: name,
+      name: 'Meet newcomer',
+    });
+    this.setState({ name });
   }
 
   hasName() {
