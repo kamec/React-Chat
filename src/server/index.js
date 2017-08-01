@@ -5,10 +5,10 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-app.use(express.static('build'));
+app.use(express.static(path.join(__dirname, '../ui/build')));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../build/index.html'));
+  res.sendFile(path.join(__dirname, '../ui/build/index.html'));
 });
 
 server.listen(4000, function() {
@@ -23,8 +23,12 @@ io.on('connection', socket => {
     console.log('a user disconnected');
   });
 
-  socket.on('chat message', data => {
-    socket.broadcast.emit('message', { data: data, date: new Date() });
-    console.log(`message: ${data}`);
+  socket.on('chat message', message => {
+    const date = new Date();
+    socket.broadcast.emit(
+      'message',
+      Object.assign({}, message, { date: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}` })
+    );
+    console.log(`message: ${message.data}\nname: ${message.name}`);
   });
 });
