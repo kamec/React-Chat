@@ -6,11 +6,7 @@ export default class Messages extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: [
-        // { data: 'hey', name: 'A', date: '1' },
-        // { data: 'hey', date: '1' },
-        // { data: 'hey', name: '1', date: '1' },
-      ],
+      messages: [],
       socket: props.socket,
     };
   }
@@ -26,7 +22,7 @@ export default class Messages extends Component {
   render() {
     return (
       <ul className="messages row col-xs-8 col-xs-offset-2 list-group">
-        {this.state.messages.map((m, idx) => <Message key={idx} message={m} />)}
+        {this.state.messages.map((m, idx) => <li><Message key={idx} message={m} /></li>)}
       </ul>
     );
   }

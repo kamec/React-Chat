@@ -4,7 +4,7 @@ import './style.css';
 export default function Message({ message }) {
   const { data, name, date } = message;
   return (
-    <li className="message list-group-item">
+    <div className="message list-group-item">
       <div className="text">
         {data}
       </div>
@@ -17,6 +17,6 @@ export default function Message({ message }) {
           {date}
         </div>
       </div>
-    </li>
+    </div>
   );
 }

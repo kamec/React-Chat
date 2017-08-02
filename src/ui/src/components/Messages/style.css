@@ -2,8 +2,6 @@
   max-height: 400px;
   overflow: auto;
 }
-
 li {
-  list-style: none;
   word-wrap: break-word;
 }
