@@ -8,11 +8,12 @@ export default class InputSubmit extends Component {
   handleChange = e => this.setState({ input: e.target.value });
 
   handleClick = () => {
-    if (this.state.input === '') {
+    const input = this.state.input.trim();
+    if (input === '') {
       return;
     }
     const { onClickAction } = this.props;
-    onClickAction(this.state.input);
+    onClickAction(input);
     this.setState({ input: '' });
   };
 
