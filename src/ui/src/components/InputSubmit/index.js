@@ -7,8 +7,6 @@ export default class InputSubmit extends Component {
 
   handleChange = e => this.setState({ input: e.target.value });
 
-  hasName = name => name !== undefined && name !== '';
-
   handleClick = () => {
     if (this.state.input === '') {
       return;

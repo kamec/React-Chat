@@ -12,7 +12,9 @@ export default class MainPage extends Component {
 
   setName = name => {
     this.state.socket.emit('chat message', {
-      data: `"${name}" has entered the chat.`,
+      isEntry: true,
+      date: Date.now(),
+      text: `"${name}" has entered the chat.`,
     });
     this.setState({ name });
   };

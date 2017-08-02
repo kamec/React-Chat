@@ -22,7 +22,11 @@ export default class Messages extends Component {
   render() {
     return (
       <ul className="messages row col-xs-8 col-xs-offset-2 list-group">
-        {this.state.messages.map((m, idx) => <li><Message key={idx} message={m} /></li>)}
+        {this.state.messages.map((m, idx) =>
+          <li key={idx} className="list-item">
+            <Message message={m} />
+          </li>,
+        )}
       </ul>
     );
   }

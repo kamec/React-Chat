@@ -2,6 +2,7 @@
   max-height: 400px;
   overflow: auto;
 }
-li {
+
+.list-item {
   word-wrap: break-word;
 }

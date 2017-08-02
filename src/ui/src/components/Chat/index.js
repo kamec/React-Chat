@@ -5,11 +5,14 @@ import './style.css';
 
 export default function Chat(props) {
   const { name, socket } = props;
-  const sendMessage = data => socket.emit('chat message', {name, data})
+
+  const sendMessage = text =>
+    socket.emit('chat message', { name, text, date: Date.now() });
+
   return (
-    <div className="chat-wrapper">
+    <div>
       <Messages socket={socket} />
-      <div id="send-message">
+      <div className="send-message">
         <InputSubmit
           name={name}
           onClickAction={sendMessage}

@@ -24,10 +24,9 @@ io.on('connection', socket => {
   });
 
   socket.on('chat message', message => {
-    const date = new Date();
     socket.broadcast.emit(
       'message',
-      Object.assign({}, message, { date: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}` })
+      message
     );
     console.log(`message: ${message.data}\nname: ${message.name}`);
   });
