@@ -5,7 +5,7 @@ import './style.css';
 
 export default function Chat(props) {
   const { name, socket } = props;
-  const sendMessage = message => socket.emit('chat message', message);
+  const sendMessage = data => socket.emit('chat message', {name, data})
   return (
     <div className="chat-wrapper">
       <Messages socket={socket} />

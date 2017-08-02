@@ -14,11 +14,8 @@ export default class InputSubmit extends Component {
     if (this.state.input === '') {
       return;
     }
-    const { name, onClickAction } = this.props;
-    const message = this.hasName(name)
-      ? { name, data: this.state.input }
-      : this.state.input;
-    onClickAction(message);
+    const { onClickAction } = this.props;
+    onClickAction(this.state.input);
     this.setState({ input: '' });
   };
 
